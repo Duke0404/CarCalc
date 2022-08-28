@@ -11,7 +11,7 @@ cargo build
 cargo run
 ```
 
-The Server will run on port 8080. The required endpoints can be found at:
+The Server will run on port 8000. The required endpoints can be found at:
 
 ```
 http://localhost:8000/api/calculateDieselUsageForDistance
