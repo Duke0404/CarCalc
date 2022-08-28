@@ -1,19 +1,13 @@
-// Import rocket & types
+// Import rocket
 # [macro_use]
 extern crate rocket;
 
-use rocket::{http::Status, serde::json::Json};
-use rand::Rng;
+// Import Routes
+mod routes;
 
-// Import calculate_diesel_usage_for_distance
-use routes::calculate_diesel_usage_for_distance::calculate_diesel_usage_for_distance;
-
-# [get("/probabilityOfUnitInjectorFail?<VIN>")]
-fn probability_of_unit_injector_fail(VIN: String) -> Result<Json<f64>, Status> {
-    let mut rng = rand::thread_rng();
-
-    Ok(Json(f64::trunc(rng.gen_range(0.01..1.00) * 100.0) / 100.0))
-}
+// Import route functions
+use routes::usage::calculate_diesel_usage_for_distance;
+use routes::fail_prob::probability_of_unit_injector_fail;
 
 // Run the server
 # [launch]
